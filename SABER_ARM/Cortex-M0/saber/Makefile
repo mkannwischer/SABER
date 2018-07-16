@@ -89,10 +89,12 @@ $(PROG).elf : $(OBJS)
 
 # Compile C source code and generate object files
 $(SDIR)/$(ODIR)/%.o: $(SDIR)/%.c
+	@ mkdir -p $(SDIR)/$(ODIR)
 	$(CC) -c $(CCFLAGS) $< -o $@
 
 # Compile assembly source code and generate object files
 $(SDIR)/$(ODIR)/%.o: $(SDIR)/%.S
+	@ mkdir -p $(SDIR)/$(ODIR)
 	$(CC) -c $(CCFLAGS) $< -o $@
 
 flash: $(PROG).elf

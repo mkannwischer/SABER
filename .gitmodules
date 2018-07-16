@@ -1,0 +1,3 @@
+[submodule "SABER_ARM/Cortex-M4/libopenc3m"]
+	path = SABER_ARM/Cortex-M4/libopenc3m
+	url = https://github.com/libopencm3/libopencm3

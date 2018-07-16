@@ -56,10 +56,10 @@ endef
 export SEGGER_FLASH_SOFTDEVICE_CMD
 
 # Specify program name, output directory and sources
-SABER_SRC := cbd.c kem.c pack_unpack.c poly.c poly_mul.c recon.c SABER_indcpa.c verify.c asm_funcs.S \
+SABER_SRC := cbd.c kem.c pack_unpack.c poly.c poly_mul.c recon.c SABER_indcpa.c verify.c \
 			 fips202.c asm_KeccakF-1600.S
 #keccakf1600.S
-SABER_OBJS := cbd.o kem.o pack_unpack.o poly.o poly_mul.o recon.o SABER_indcpa.o verify.o asm_funcs.o \
+SABER_OBJS := cbd.o kem.o pack_unpack.o poly.o poly_mul.o recon.o SABER_indcpa.o verify.o \
 			  fips202.o asm_KeccakF-1600.o
 #keccakf1600.o
 PROG   := main
@@ -89,10 +89,12 @@ $(PROG).elf : $(OBJS)
 
 # Compile C source code and generate object files
 $(SDIR)/$(ODIR)/%.o: $(SDIR)/%.c
+	@ mkdir -p $(SDIR)/$(ODIR)
 	$(CC) -c $(CCFLAGS) $< -o $@
 
 # Compile assembly source code and generate object files
 $(SDIR)/$(ODIR)/%.o: $(SDIR)/%.S
+	@ mkdir -p $(SDIR)/$(ODIR)
 	$(CC) -c $(CCFLAGS) $< -o $@
 
 flash: $(PROG).elf

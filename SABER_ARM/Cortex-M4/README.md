@@ -28,6 +28,6 @@ The table below summarizes the results of the available implementations.
 
 Scheme    | key_gen [clock cycles]/[bytes] | encaps [clock cycles]/[bytes] | decaps [clock cycles]/[bytes]
 --------- | ------------------------------ | ----------------------------- | -----------------------------
-Saber     | 4.786.727 / 5.031              | 6.328.445 / 5.119             | 7.509.801 / 6.215
-Saber#    | 4.782.306 / 5.007              | 6.325.718 / 4.079             | 7.507.074 / 5.175
+Saber     | 1.165.845 / 6.931              | 1.530.745 / 7.019             | 1.635.720 / 8.115
+Saber#    | 1.162.680 / 6.923              | 1.528.061 / 5.987             | 1.633.035 / 7.163
 

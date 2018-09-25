@@ -313,7 +313,6 @@ int main(void)
   gpio_setup();
   usart_setup(115200);
 #ifdef BENCHMARK
-  cyccnt_setup();
 #endif
   rng_enable();
 

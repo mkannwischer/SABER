@@ -53,11 +53,13 @@ void usart_setup(int baud)
     usart_enable(USART2);
 }
 
-void cyccnt_setup(void)
+void systick_setup(void)
 {
-    SCS_DEMCR |= SCS_DEMCR_TRCENA;
-    DWT_CYCCNT = 0;
-    DWT_CTRL |= DWT_CTRL_CYCCNTENA;
+    // assumes clock_setup was called with CLOCK_BENCHMARK
+    systick_set_clocksource(STK_CSR_CLKSOURCE_AHB);
+    systick_set_reload(2399999);
+    systick_interrupt_enable();
+    systick_counter_enable();
 }
 
 void dma_request_setup(void)
@@ -140,7 +142,6 @@ void send_USART_str(const char* in)
     for(i = 0; in[i] != 0; i++) {
         usart_send_blocking(USART2, *(unsigned char *)(in+i));
     }
-    usart_send_blocking(USART2, '\r');
     usart_send_blocking(USART2, '\n');
 }
 

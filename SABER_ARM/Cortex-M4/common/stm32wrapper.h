@@ -10,6 +10,7 @@
 #include <libopencm3/stm32/dma.h>
 #include <libopencm3/stm32/flash.h>
 #include <libopencm3/stm32/rng.h>
+#include <libopencm3/cm3/systick.h>
 
 enum clock_mode {
     CLOCK_FAST,
@@ -19,7 +20,7 @@ enum clock_mode {
 void clock_setup(const enum clock_mode);
 void gpio_setup(void);
 void usart_setup(int baud);
-void cyccnt_setup(void);
+void systick_setup(void);
 void dma_transmit_setup(void);
 void dma_request_setup(void);
 void dma_request(void* buffer, const int datasize);
